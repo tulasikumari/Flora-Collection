@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width,
+                 initial-scale=1, shrink-to-fit=no">
+
+  <link href=
+                "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+        rel="stylesheet">
+  <style>
+    .btnmain{
+      background-color: white;
+
+    }
+    .editbtn{
+      background-color: skyblue;
+
+    }
+    .deletebtn{
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <table id="mytableID" style="width:100%"
+         class="table table-striped sampleTable">
+    <thead>
+    <tr>
+      <th>Contact_Id</th>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Message</th>
+      <th>Action</th>
+      <!--            <th>Action</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="contact:${contact}">
+      <td th:text="${contact.id}"></td>
+      <td th:text="${contact.fullname}"></td>
+      <td th:text="${contact.email}"></td>
+      <td th:text="${contact.message}"></td>
+
+      <td>
+
+        <button class="deletebtn"><a class="delete" th:href="@{~/admin/deleteContact/}+${contact.id}">Delete</a></button>
+
+      </td>
+
+    </tr>
+    </tbody>
+
+  </table>
+</div>
+<script>
+  let mypage="Contact";
+  let listgroupItem=Array.from(document.getElementsByClassName("list-group-item"));
+  listgroupItem.forEach(i=>{
+    i.classList.remove("active");
+  })
+  let activeId=document.getElementById(mypage);
+  activeId.classList.add("active");
+
+</script>
+
+<script  src=
+                 "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+<script src=
+                "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js">
+</script>
+<script src="fancyTable.js">
+</script>
+<script type="text/javascript">
+
+  $(document).ready(function() {
+    $(".sampleTable").fancyTable({
+      /* Column number for initial sorting*/
+      sortColumn:0,
+      /* Setting pagination or enabling */
+      pagination: true,
+      /* Rows per page kept for display */
+      perPage:3,
+      globalSearch:true
+    });
+
+  });
+</script>
+</body>
+</html>

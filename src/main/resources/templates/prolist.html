@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product List</title>
+
+</head>
+<body>
+
+<div class="admin-body">
+  <div class="admin-product-list">
+    <table>
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Image</th>
+        <th>Date</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="product: ${productList}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.product_name}"></td>
+        <td th:text="${product.product_price}"></td>
+        <td th:text="${product.product_quantity}"></td>
+        <!--      <td th:text="${product.product_image}"></td>-->
+        <td> <img th:src="'data:image/png;base64,'+${product.product_imageBase64}"></td>
+        <td th:text="${product.date}"></td>
+        <td>
+          <a class="remove" th:href="@{~/admin/deleteImg/}+${product.id}">remove</a>
+          <!--        <a th:href="@{~/admin/addProduct} + ${product.id}" class="edit">edit</a>-->
+          <a class="edit">edit</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

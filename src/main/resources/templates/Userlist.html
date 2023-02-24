@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <table id="mytableID" style="width:100%"
+           class="table table-striped sampleTable">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Action</th>
+            <!--            <th>Action</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user:${userList}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.email}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+
+

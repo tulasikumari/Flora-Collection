@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Product</title>
+
+</head>
+<body>
+
+
+
+<div class="admin-add-product">
+  <div class="add-product-container">
+    <form th:action="@{/admin/saveproduct}" novalidate th:method="post" th:object="${product}" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="product-name">Product Name</label>
+        <input type="text" class="productname" name="product_name" id="product-name" th:field="*{product_name}" th:value="${product.product_name}">
+      </div>
+
+      <div class="form-group">
+        <label for="product-price">Product Price</label>
+        <input type="text" class="productprice" name="product_price" id="product-price" th:field="*{product_price}" th:value="${product.product_price}">
+      </div>
+
+      <div class="form-group">
+        <label for="product-quantity">Product Quantity</label>
+        <input type="text" class="productquantity" name="product_quantity" id="product-quantity" th:field="*{product_quantity}" th:value="${product.product_quantity}">
+      </div>
+
+      <div class="form-group">
+        <label for="product-image">Product Image</label>
+        <input type="file" class="productimage" name="product_image" id="product-image" th:field="*{product_image}" th:value="${product.product_image}">
+      </div>
+      <div class="form-group">
+        <label for="product-date">Product Date</label>
+        <input type="text" class="productdate" name="product_image" id="product-date" th:field="*{date}" th:value="${product.date}">
+      </div>
+      <button type="submit">submit</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>
